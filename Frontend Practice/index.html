@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="initial-scale=1.0"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=4.0"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=0.0"> -->
+    <title>Document</title>
+</head>
+<body>
+    <!-- inline -->
+    <div style="display: inline; background: lightblue; width: 100vw;">Block Element</div>
+    <p style="display: inline;">Ankur kumar tiwari</p>
+    <div style="display: inline; background: lightgreen;">Another Block Element</div>
+     <!-- block -->
+     <div style="display: block; background: lightblue; width: 100vw;">Block Element</div>
+     <p style="display: block;">Ankur kumar tiwari</p>
+     <div style="display: block; background: lightgreen;">Another Block Element</div>
+    <!-- inline-block -->
+    <div style="display: inline-block; background: lightblue; width: 100vw;">Block Element</div>
+    <p style="display: inline-block;">Ankur kumar tiwari</p>
+    <div style="display: inline-block; background: lightgreen;">Another Block Element</div>
+
+    <!-- anchor tag -->
+    <a href="https://www.google.com" target="_self">Home</a>
+    <a href="https://www.google.com" target="_blank">Menu</a>
+    <a href="https://www.google.com" target="_parent">Contact</a>
+    <a href="https://www.google.com" target="_top">About Us</a>
+
+    <!-- arial tag -->
+  <!-- Using aria-label for better screen reader accessibility -->
+  <div role="button" aria-label="Close" tabindex="0" onclick="alert('Closed!')">X</div>
+  <!--aria required-->
+  <input type="email" id="email" name="email" aria-required="true" aria-describedby="emailHelp">
+  <!-- aria live -->
+  <small id="emailHelp">We'll never share your email with anyone else.</small>
+  <div aria-live="polite">
+    <p id="message">Welcome! You have no new notifications.</p>
+  </div>
+
+    <!-- frameset -->
+    <!--<frameset rows="30%, 70%"> //Divide into two rows
+        <frame src="top.html" name="topFrame">  //Top frame 
+        <frameset cols="40%, 60%">   //Nested frameset for bottom row -
+            <frame src="bottom-left.html" name="bottomLeftFrame">
+            <frame src="bottom-right.html" name="bottomRightFrame">
+        </frameset>
+    </frameset>-->
+</body>
+</html>
