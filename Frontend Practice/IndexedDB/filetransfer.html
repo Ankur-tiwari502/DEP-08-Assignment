@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB File Storage</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #fileList { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Store and Retrieve Files in IndexedDB</h2>
+    <input type="file" id="fileInput" />
+    <button onclick="saveFile()">Save File</button>
+    <h3>Saved Files:</h3>
+    <ul id="fileList"></ul>
+
+    <script>
+        const dbName = "FileDB";
+        const storeName = "files";
+        let db;
+
+        // Open IndexedDB
+        const request = indexedDB.open(dbName, 1);
+        request.onupgradeneeded = event => {
+            let db = event.target.result;
+            if (!db.objectStoreNames.contains(storeName)) {
+                db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
+            }
+        };
+        request.onsuccess = event => {
+            db = event.target.result;
+            loadFiles();
+        };
+        request.onerror = event => {
+            console.error("Database error: ", event.target.errorCode);
+        };
+
+        function saveFile() {
+            const fileInput = document.getElementById("fileInput");
+            if (fileInput.files.length === 0) return;
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const fileData = { name: file.name, data: event.target.result, type: file.type };
+                const transaction = db.transaction(storeName, "readwrite");
+                const store = transaction.objectStore(storeName);
+                store.add(fileData);
+                transaction.oncomplete = () => {
+                    loadFiles();
+                    alert("File saved!");
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadFiles() {
+            const transaction = db.transaction(storeName, "readonly");
+            console.log(transaction);
+            const store = transaction.objectStore(storeName);
+            console.log(store);
+            const request = store.getAll();
+            
+            request.onsuccess = () => {
+                const files = request.result;
+                const fileList = document.getElementById("fileList");
+                fileList.innerHTML = "";
+                files.forEach(file => {
+                    const li = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.href = file.data;
+                    link.download = file.name;
+                    link.textContent = file.name;
+                    link.target = "_blank";
+                    li.appendChild(link);
+                    fileList.appendChild(li);
+                });
+            };
+        }
+    </script>
+</body>
+</html>
