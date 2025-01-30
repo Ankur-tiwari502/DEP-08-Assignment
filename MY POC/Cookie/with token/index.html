@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Login Example</title>
+
+</head>
+
+
+
+<body>
+    <h1>Token Based Login</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Login</button>
+
+    </form>
+
+
+
+    <button id="logoutBtn" style="display: none;">Logout</button>
+    <button id="dashboardBtn" style="display: none;">Go to Dashboard</button>
+    <p id="responseMessage"></p>
+
+
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const dashboardBtn = document.getElementById("dashboardBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+        const responseMessage = document.getElementById("responseMessage");
+        async function checkAuth() {
+
+            try {
+                const res = await fetch("http://localhost:3000/dashboard", {
+                    method: "GET",
+                    credentials: "include", // Include cookies
+                });
+
+
+
+                if (res.ok) {
+                    const message = await res.text();
+                    responseMessage.textContent = message;
+                    dashboardBtn.style.display = "block";
+                    logoutBtn.style.display = "block";
+                    loginForm.style.display = "none";
+                } else {
+                    responseMessage.textContent = "Please log in.";
+                    dashboardBtn.style.display = "none";
+                    loginForm.style.display = "block";
+                    logoutBtn.style.display = "none";
+                }
+            } catch (err) {
+                console.error("Error checking authentication:", err);
+
+            }
+
+        }
+
+        // Run the check on page load
+        window.onload = checkAuth;
+
+        // Login
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const res = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password }),
+                credentials: "include",
+
+            });
+
+            if (res.ok) {
+                responseMessage.textContent = "Login successful!";
+                dashboardBtn.style.display = "block";
+                loginForm.style.display = "none";
+                logoutBtn.style.display = "block";
+            } else {
+                responseMessage.textContent = "Invalid credentials!";
+            }
+
+        });
+
+
+
+        // Access Dashboard
+
+        dashboardBtn.addEventListener("click", async () => {
+            const res = await fetch("http://localhost:3000/dashboard", {
+                method: "GET",
+                credentials: "include"
+            });  // Include cookies
+
+            const message = await res.text();
+            responseMessage.textContent = message;
+
+        });
+
+        // Logout
+
+        logoutBtn.addEventListener("click", async () => {
+            const res = await fetch("http://localhost:3000/logout", {
+                method: "POST",
+                credentials: "include", // Include cookies
+            });
+            if (res.ok) {
+                responseMessage.textContent = "Logout successful!";
+                dashboardBtn.style.display = "none";
+                logoutBtn.style.display = "none";
+                loginForm.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+</html>
