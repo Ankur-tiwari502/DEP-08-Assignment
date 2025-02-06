@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+
+</head>
+
+<body class="font-customFont box-border m-0 p-0 bg-[#f5f6fa] ">
+    <header class="sticky w-full top-0 left-0 z-50 h-16">
+        <nav class="flex bg-[#303240] flex-row items-center justify-between md:justify-between  text-white h-full font-medium">
+            <ul class="  h-full flex items-center sm:flex sm:flex-row md:flex md:flex-row md:items-center ">
+                <div class="flex items-center">
+                    <i class="ri-menu-2-line text-white text-3xl block md:hidden"></i>
+                    <img src="https://vacation.epam.com/epm-vts-web/static/media/vacation.9e7495fc82c3decbfe5fa4f9976c82ea.svg"
+                        class=""></img>
+                </div>
+                <li
+                    class="border-b-4 border-[#009ECC] h-full align-middle hover:bg-black px-3 bg-black/50 cursor-pointer hidden  md:flex md:items-center">
+                    Dashboard</li>
+                <li class="h-full align-middle hover:bg-black px-3 cursor-pointer hidden md:flex md:items-center">
+                    Requests</li>
+                <li class="h-full align-middle  items-center hover:bg-black px-3 cursor-pointer hidden md:flex">Balances
+                </li>
+                <li class="h-full align-middle items-center hover:bg-black px-3 cursor-pointer hidden md:flex">
+                    Notification</li>
+            </ul>
+            <ul class="flex flex-row items-center gap-5 md:flex md:flex-row md:items-center">
+                <li
+                    class="flex flex-row items-center font-medium flex-shrink-0 bg-[#009ECC] text-white py-1 px-2 rounded-sm cursor-pointer hover:bg-[#009ECC] hover:opacity-90">
+                    <i class="ri-add-line text-xl"></i>
+                    <p class="py-1 text-[13px] font-semibold">Add request</p>
+                </li>
+                <li class="cursor-pointer hidden lg:block"><i class="ri-question-line text-[24px]"></i></li>
+                <li><img src="https://th.bing.com/th/id/OIP.TVxi7WML7XU-5SDlR4HWqgHaLI?rs=1&pid=ImgDetMain"
+                        class="h-[40px] w-[40px] rounded-full object-cover text-white hidden sm:block "></img></li>
+                <li
+                    class="size-10 flex justify-center items-center flex-shrink-0 sm:size-14 p-1 sm:p-4 hover:bg-gray-950 cursor-pointer">
+                    <img src="./dots-menu-svgrepo-com.svg" class=""></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="min-h-screen w-full">
+
+        <div class="flex flex-row items-center gap-4 w-full bg-white shadow-md px-4">
+            <div class="text-center hover:text-[#009ECC] cursor-pointer border-b-2 border-[#009ECC] py-2">Personal</div>
+            <div class="border-r h-full border-gray-200"></div>
+            <div class="text-center flex gap-1 items-center group cursor-pointer py-2">
+                <p class="group-hover:text-[#009ECC]">
+                    Action Required
+                </p>
+                <p class="flex items-center justify-center size-4 p-1 bg-gray-200 rounded-full text-xs">0</p>
+            </div>
+        </div>
+
+        <div class="px-8 py-8 ">
+            <section>
+                <div class="flex flex-row justify-between ">
+                    <div class="text-gray-700">
+                        Overview
+                    </div>
+                    <div class="text-[#009ECC]">
+                        Go to Balances
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="aspect-video bg-white shadow-md">
+                        <div class="flex justify-between px-6 py-2 ">
+                            <h2>Regular Vacation</h2>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="flex justify-center items-center p-6">
+                            <div
+                                class="border-8 border-[#009ECC] h-full size-44  aspect-square rounded-full flex items-center justify-center">
+                                <div class="">
+                                    <p>
+                                        <span class="text-3xl opacity-65 font-semibold">15</span><span class="opacity-65 text-2xl font-semibold">d</span><br /> <span
+                                            class="text-sm opacity-45"> of</span> <span class="text-sm opacity-45">15<span class="opacity-75 text-sm">d</span></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aspect-video bg-white shadow-md">
+                        <div class="flex justify-between px-6 py-2 ">
+                            <p class="font-customFont">Overtime vacation</p>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="flex justify-center items-center p-6">
+                            <div
+                                class="border-8 border-[#f2f3f7] h-full size-44 aspect-square rounded-full flex items-center justify-center">
+                                <div class="">
+                                    <p>
+                                        <span class="text-3xl font-semibold opacity-65">0h</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aspect-video bg-white shadow-md">
+                        <div class="flex justify-between px-6 py-2 ">
+                            <p>Sick leave</p>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="flex justify-center items-center p-6">
+                            <div
+                                class="border-8 border-[#009ECC] h-full size-44 aspect-square rounded-full flex items-center justify-center">
+                                <div class="">
+                                    <p>
+                                        <span class="text-3xl font-semibold opacity-65">6</span><span class="text-2xl font-semibold opacity-65">d</span><br /> <span
+                                            class="text-sm opacity-45"> of</span> <span class="text-sm opacity-45">6<span class="opacity-85 text-sm">d</span></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div
+                        class="w-[418px] h-[236px] px-[24px] py-[12px] box-content flex-shrink-0 inline-flex flex-col items-center bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+                        <div class="flex flex-row justify-between w-full">
+                            <p>Regular vacation</p>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="relative">
+                            <img src="./circle.svg" />
+                            <p class="absolute top-[70px] left-[80px]"> </p>
+                        </div>
+                    </div> 
+                    <div
+                        class="w-[418px] h-[236px] px-[24px] py-[12px] box-content flex-shrink-0 inline-flex flex-col items-center bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+                        <div class="flex flex-row justify-between w-full">
+                            <p>Overtime vacation</p>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="relative">
+                            <img src="./circle.svg" />
+                            <p class="absolute top-[80px] left-[80px] text-2xl">0h</p>
+                        </div>
+                    </div>
+                    <div
+                        class="w-[418px] h-[236px] px-[24px] py-[12px] box-content flex-shrink-0 inline-flex flex-col items-center bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+                        <div class="flex flex-row justify-between w-full">
+                            <p>Sick leave</p>
+                            <i class="ri-information-line"></i>
+                        </div>
+                        <div class="relative">
+                            <img src="./circle.svg" />
+                            <p class="absolute top-[70px] left-[80px]"><span
+                                    class="text-3xl font-semibold">6</span><span>d</span><br /> <span class="text-sm">
+                                    of</span> <span class="text-sm">6d</span></p>
+                        </div>
+                    </div> -->
+                </div>
+
+            </section>
+            <section>
+                <div class="flex flex-row justify-between items-center mt-10">
+                    <div class="text-gray-600">My requests</div>
+                    <div class="text-[#009ECC]">Go to all Requests</div>
+                </div>
+                <div class="flex flex-col justify-center items-center py-14">
+                    <div>
+                        <img src="./request.svg" />
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-lg font-semibold mt-8">There are no registered requests.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="realtive">
+                <img class="w-12 h-12 sm:w-14 sm:h-14 bg-[#8B86FF] rounded-full p-3 fixed right-10 bottom-10"
+                    src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2034%2034%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M21.3822%204.25L22.6667%201.88889L23.9511%204.25C24.4233%205.1%2025.1222%205.79889%2025.9722%206.27111L28.3333%207.55555L25.9722%208.84C25.1222%209.31222%2024.4233%2010.0111%2023.9511%2010.8611L22.6667%2013.2222L21.3822%2010.8611C20.91%2010.0111%2020.2111%209.31222%2019.3611%208.84L17%207.55555L19.3611%206.27111C20.2111%205.79889%2020.91%205.1%2021.3822%204.25Z%22%20fill%3D%22white%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M21.3822%2023.1389L22.6667%2020.7778L23.9511%2023.1389C24.4233%2023.9889%2025.1222%2024.6878%2025.9722%2025.16L28.3333%2026.4444L25.9722%2027.7289C25.1222%2028.2011%2024.4233%2028.9%2023.9511%2029.75L22.6667%2032.1111L21.3822%2029.75C20.91%2028.9%2020.2111%2028.2011%2019.3611%2027.7289L17%2026.4444L19.3611%2025.16C20.2111%2024.6878%2020.91%2023.9889%2021.3822%2023.1389Z%22%20fill%3D%22white%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M13.2222%209.44444L11.5033%2012.58C10.88%2013.7133%209.93555%2014.6578%208.80221%2015.2811L5.66666%2017L8.80221%2018.7189C9.93555%2019.3422%2010.88%2020.2867%2011.5033%2021.42L13.2222%2024.5556L14.9411%2021.42C15.5644%2020.2867%2016.5089%2019.3422%2017.6422%2018.7189L20.7778%2017L17.6422%2015.2811C16.5089%2014.6578%2015.5644%2013.7133%2014.9411%2012.58L13.2222%209.44444Z%22%20fill%3D%22white%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E">
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
